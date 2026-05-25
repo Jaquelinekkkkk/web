@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <style>
+        table,td,th{
+            border-collapse: collapse;
+            border: 1px solid red;
+        }
+    </style>
+    <!-- Head serve para configurar o documento HTML-->
+</head>
+<body>
+    <h1 id="h1">Título de nível 1 em HTML</h1>
+    <h2>Título de nível 2 em HTML</h2>
+    <h3>Título de nível 3 em HTML</h3>
+    <h4>Título de nível 4 em HTML</h4>
+    <h5>Título de nível 5 em HTML</h5>
+    <h6>Título de nível 6 em HTML</h6>
+    <P>Isto é um parágrafo em HTML</P>
+    <span>Isto é um SPAN</span>
+    <h1>Display dos elementos HTML</h1>
+    <P>Os elementos dos html possuem exibição ou <i>display</i> <em>inline</em> ou <em>block</em></P>
+    <p>BLOCK - é uma exibição que inicia na margem esquerda até a margem direita em que podemos determinar altura e largura do elemento. Por <sup>3</sup><sub>3</sub>padrão, no <mark>HTML</mark>, elementos com exibição <del>block</del> não dividem espaço na horizontal com outros elementos.</p>
+    <p>INLINE - é uma exibição que permite que o elemento seja apresentado dentro de uma linha com outros elementos como um elemento textual.</p>
+    <img src="./imgs/pato.webp" alt="pato">
+    <ul draggable="true">
+        <li>item da lista 1</li>
+        <li>item da lista 2</li>
+        <li>item da lista 3</li>
+        <li>item da lista 4</li>
+    </ul>
+    <ol type="I" start="5">
+        <li>item da lista 1</li>
+        <li>item da lista 2</li>
+        <li>item da lista 3</li>
+        <li>item da lista 4</li>
+    </ol>
+    <table>
+        <thead>
+        <tr>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+        </tr>
+        </thead>
+         <tbody>
+        <tr>
+            <th rowspan="2">A</th>
+            <th colspan="2">B</th>
+
+        </tr>
+        <tr>
+
+            <td>B</td>
+            <td>C</td>
+        </tr>
+         </tbody>
+         <tfoot>
+         <tr>
+            <td>A</td>
+            <td>B</td>
+            <td>C</td>
+        </tr>
+        </tfoot>
+        <h1>Como criar um link no HTML</h1>
+                <h1>Como criar um link no HTML</h1>
+
+
+        <p>A tag <em>A</em> no HTML é utilizada para vincular documentos</p>
+        <a href="https://google.com">link do Google</a>
+        <div>
+            <p>Falamos sobre <a href="#h1">H1</a></p>
+            <form action="https://google.com/search" method="">
+                <input type="input" placeholder="Entre com termo de pesquisa" name="q">
+                <input type="submit" value="Pesquisar">
+
+            </form>
+        </div>
+    </table>
+    <canvas id="canvas" height="1920px" width="1080px" style="border: 1px solid blue"></canvas>
+    <script>
+        //codigo java script
+        let ctx= canvas.getContext("2d") 
+        ctx.moveTo(0,0)
+        ctx.lineTo(1080,1920)
+        ctx.stroke()
+    </script>
+</body>
+</html>
