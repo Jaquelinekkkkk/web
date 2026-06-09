@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+            --cena:300px;
+            --box:calc(var(--cena)/3)
+        }
+        body{
+            animation: rotacionar3d 10s linear infinite;
+        }
+        .cena{border: 1px solid black;
+            transform-style: preserve-3d;
+            transform: rotate3d(1,0,0,45deg);
+            animation: rotacioanr3d 10s linear infinite;
+
+        }
+        .box{height: var(--box); width: var(--box)}
+
+        #box-1{background-color: red;
+        transform: rotate3d(var(--box),0,0)rotate3d(1,0,0,90deg);
+    }
+    #box-2{background-color: gray;}
+    #box-2{background-color: green;}
+    #box-2{background-color: yellow;}
+    #box-2{background-color: blue;}
+    #box-2{background-color: pink;}
+       
+    
+      
+    </style>
+</head>
+
+<body>
+    <div class="cena">
+        <div class="box" id="box-1">box-1 </div>
+        <div class="box" id="box-2">box-2</div>
+        <div class="box" id="box-3">box-3</div>
+        <div class="box" id="box-4">box-4</div>
+        <div class="box" id="box-5">box-5</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .box{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: rgb(255, 157, 157);
+
+
+        animation: move 2s infinite;
+        }
+
+        span{
+            font-size: 100px;
+            bottom: 0px;
+            left: 50%;
+            position: fixed;
+            transform: rotate(-45deg);
+            animation: lancamento 10s cubic-bezier(1, -0.14, 0.32, 1.94) infinite;
+        }
+
+
+        @keyframes move {
+            0% {transform: translatex(0); }
+            50%{
+                transform: translatex(90vw) rotate(1000deg);
+            }
+            100% {transform: translatex(0vw) rotate(0deg);}
+        }
+
+        @keyframes lancamento {
+            from{
+                bottom: 0px;
+            }
+            to{
+                bottom: 100lvh;
+            }
+
+        }
+
+        
+    </style>
+</head>
+<body>
+    
+    <h2>Animate</h2>
+    <p>animação para elementos, definindo início, passo e ou fim de cada etapa da animação.</p>
+
+    <pre>
+    .box{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        animation: move 2s infinite;
+
+    }
+
+    @keyframes move {
+        0% {transform: translatex(0); }
+        50% {transform: translatex(100px); }
+        100% {transform: translatex(0); }
+    }
+
+    span{
+            font-size: 100px;
+            position: fixed;
+
+            animation: name
+        }
+
+    <!--<div class="box"></div>!-->
+
+    <span>🚀</span>
+
+    </pre>
+</body>
+</html>
+
