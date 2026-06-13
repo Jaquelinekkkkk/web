@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @media screen and (max-width: 800px) {
+                .container{
+            display:flex;
+            flex-direction: column;
+            
+            height: 100vh;
+           
+           }
+
+           .box{flex-grow: 1;}
+                
+    }
+    @media screen and  (min-width: 800px){
+            .container{
+            display:grid;
+            height: 100vh;
+           
+           /* grid-template-columns: 1fr 1fr 10fr 1fr 1fr;
+            grid-template-rows: 300px 400px;*/
+
+            
+            grid-template-areas:
+            "header      header header" 
+            " left_aside banner right_aside"
+            "left_aside main_content right_aside"
+            "left_aside low_content right_aside"
+            "footer     footer          footer"
+            ;
+            grid-template-rows: 30lvh 45lvh 5lvh 5lvh 15lvh;
+            grid-template-columns:15lvw 70lvw 15lvw;
+              }
+         }
+    
+        .box{
+            text-align: center;
+            align-content: center;
+        }
+
+        #box1{background-color: rgb(248, 93, 3);
+        grid-area: header;
+        }
+        #box2{background-color: rgb(22, 59, 223);
+        grid-area: banner;
+        }
+        #box3{background-color: rgb(255, 5, 5);
+        grid-area: left_aside;
+        }
+        #box4{background-color: rgb(37, 153, 22);
+        grid-area: main_content ;
+        }
+        #box5{background-color: rgb(61, 160, 160);
+        grid-area: right_aside;}
+        #box6{background-color: rgb(132, 18, 155);
+        grid-area: low_content;}
+        #box7{background-color: rgb(19, 226, 226);
+        grid-area: footer;}
+       /* #box8{background-color: rgb(105, 124, 75);
+        grid-area: footer;}
+        #box9{background-color: rgb(0, 255, 34);
+        grid-area: footer;}*/
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">header</div>
+        <div class="box" id="box2">banner</div>
+        <div class="box" id="box3">left_aside</div>
+        <div class="box" id="box4">main_content</div>
+       <div class="box" id="box5">right_aside</div>
+        <div class="box" id="box6">low_content</div>
+        <div class="box" id="box7">footer</div>
+     
+    </div>
+</body>
+</html>

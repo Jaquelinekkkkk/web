@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         @media screen and (max-width: 800px) {
+                .container{
+            display:grid;
+            height: 100vh;
+           
+           /* grid-template-columns: 1fr 1fr 10fr 1fr 1fr;
+            grid-template-rows: 300px 400px;*/
+
+            
+            grid-template-areas:
+            "header " 
+            "main "
+            "sidebar"
+            "footer"
+            ;
+            grid-template-rows: 200px 300px;;
+        }
+                
+    }
+    @media screen and  (min-width: 800px) {
+            .container{
+            display:grid;
+            height: 100vh;
+           
+           /* grid-template-columns: 1fr 1fr 10fr 1fr 1fr;
+            grid-template-rows: 300px 400px;*/
+
+            
+            grid-template-areas:
+            "header header header" 
+            " main  .   sidebar"
+    
+
+            "footer footer footer"
+            ;
+            grid-template-rows: 200px 300px;
+              }
+         }
+    
+        .box{
+            text-align: center;
+            align-content: center;
+        }
+
+        #box1{background-color: rgb(248, 93, 3);
+        grid-area: header;
+        }
+        #box2{background-color: rgb(22, 59, 223);
+        grid-area: main;
+        }
+        #box3{background-color: rgb(255, 5, 5);
+        grid-area: sidebar;
+        }
+        #box4{background-color: rgb(37, 153, 22);
+        grid-area: footer ;
+        }/*
+        #box5{background-color: rgb(61, 160, 160);
+        grid-area: footer;}
+        #box6{background-color: rgb(132, 18, 155);
+        grid-area: footer;}
+        #box7{background-color: rgb(19, 226, 226);
+        grid-area: footer;}
+        #box8{background-color: rgb(105, 124, 75);
+        grid-area: footer;}
+        #box9{background-color: rgb(0, 255, 34);
+        grid-area: footer;}*/
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box" id="box1">box1</div>
+        <div class="box" id="box2">box2</div>
+        <div class="box" id="box3">box3</div>
+        <div class="box" id="box4">box4</div>
+       <!-- <div class="box" id="box5">box5</div>
+        <div class="box" id="box6">box6</div>
+        <div class="box" id="box7">box7</div>
+        <div class="box" id="box8">box8</div>
+        <div class="box" id="box9">box9</div>-->
+    </div>
+</body>
+</html>
