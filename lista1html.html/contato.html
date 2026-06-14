@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário de Contato</title>
+</head>
+<body>
+
+    <header>
+        <h1>Contato</h1>
+        <hr>
+        <nav>
+            <a href="ex1.html">Início</a>
+        </nav>
+        <hr>
+    </header>
+
+    <main>
+        <div>
+            <h2>Instruções para Contato</h2>
+            <p>Preencha os dados do formulário abaixo para enviar sua mensagem para nossa equipe.</p>
+        </div>
+
+        <form action="#" method="POST">
+            <div>
+                <label for="txtNome">Nome Completo:</label><br>
+                <input type="text" id="txtNome" name="txtNome" placeholder="Digite seu nome completo" required>
+            </div>
+            <br>
+            <div>
+                <label for="txtEmail">E-mail para Retorno:</label><br>
+                <input type="email" id="txtEmail" name="txtEmail" placeholder="exemplo@dominio.com" required>
+            </div>
+            <br>
+            <div>
+                <label for="txtAssunto">Assunto da Mensagem:</label><br>
+                <input type="text" id="txtAssunto" name="txtAssunto" placeholder="Ex: Dúvida sobre o HTTP">
+            </div>
+            <br>
+            <div>
+                <label for="seuEstado">Seu Estado (UF):</label><br>
+                <select id="seuEstado" name="seuEstado">
+                    <option value="">-- Selecione um estado --</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="PR">Paraná</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="SP">São Paulo</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="txtMensagem">Mensagem:</label><br>
+                <textarea id="txtMensagem" name="txtMensagem" rows="5" cols="40" placeholder="Escreva sua mensagem com detalhes..."></textarea>
+            </div>
+            <br>
+            <div>
+                <button type="submit">Enviar Formulário</button>
+            </div>
+        </form>
+
+        <hr>
+        <p><a href="curriculo.html">Voltar para a página de Currículo</a></p>
+    </main>
+
+</body>
+</html>
