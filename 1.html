@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O que é JavaScript?</title>
+</head>
+<body>
+    <h1>O que é JavaScript?</h1>
+    <p>Em meados dos anos 90 a web se popularizou rapidamente e com crescimmento houve a necessidade de mais interatividade na interface do cliente, o que seria possível uma linguagem de  programacao que fosse executada no navegador do usuário, tendo acesso ao Documento HTML da página e seus artefatos de código. </p>
+    <p> Surgiram diversas propostas na industria, mas a que se popularizou foi a linguagem script, criada na NetSpace denominada de ECMA-267, conhecida porpulamenre como JavaScript</p>
+    <p>O código javascript é executado no navegador dentro de um  <i>sandbox</i>, que limita as operações  e acesso do código executado, fornecendo operações e variaveis limitando  o acesso a rede, disco além de entrada e saída. Esse conceito é fundamental na web, em que o código de terceiros podem ser baixados e executados na maquina do cliente.</p>
+    <p>Quando o interpretador  javascript executa um script, ele disponibiliza algumas variaveis globais, que fornecem acesso ao ambiemnte. No node por exemplo a variavel process forca acesso ao sistema operacional e dispositivos dde entrada e saída. Já no  navegador o java script é executado em sandbox que tem acesso a um objeto global denominado windows, que representa a janela e tem dezenas de propriedades que fornecem acesso ao console, document, history, screen e além de funções.</p>
+
+    <script>
+        let pdata=document.createElement("p");
+        pdata.id="pdata";
+
+        let intervalo; 
+
+        let buttonParar=document.createElement("button");
+        button.innerHTML="Parar";
+        let button=document.createElement("button");
+
+        let buttonContinuar=document.createElement("button");
+        button.innerHTML="Continuar";
+
+        document.body.appendChild(Parar);
+        document.body.appendChild(Continuar);
+
+
+        function atualizarDataHora(){
+
+        let date=new Date();
+        pdata.innerHTML=`Data e hora atual: ${date.toLocaleString()} `;
+        }
+
+        buttonContinuar.addEventListener("click",()=>{
+            intervalo=setInterval(atualizarDataHora,1000);
+        });
+        buttonParar.addEventListener("click",()=>{
+        intervalo=setInterval(intervalo);
+        });
+
+        
+    </script>
+</body>
+</html>
