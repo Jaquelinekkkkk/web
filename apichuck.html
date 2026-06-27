@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const url = "https://api.chucknorris.io/jokes/random"
+        fetch(url).then((response)=>{
+            return response.json();
+        }).then((data)=>{
+            console.log(data);
+            const p = document.createElement("p");
+            p.textContent = data.value;
+            document.body.appendChild(p);
+        })
+
+        const p = document.createElement("p");
+        p.textContent = "teste";
+        document.body.appendChild(p);
+    </script>
+</body>
+</html>

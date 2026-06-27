@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="texto">texto</label>
+    <input type="text" id="texto">
+    <button>Salvar</button>
+
+    <script>
+       
+
+        const input = document.getElementById("texto");
+        const button = document.querySelector("button");
+        const textDiv = document.querySelector(".text");
+        //criando o array para armazenar os s=dados no localstorage
+
+         let textos = [];
+        button.addEventListener("click",()=>{
+            const texto = input.value;
+            textos.push(texto);//adicionar o valor do input ao array
+            //conerter array em json
+            const textosJSON = JSON.stringify(textos);
+            localStorage.setItem("texto",textosJSON);//salvar o json no localstorage
+            console.log(textosJSON);
+
+
+
+            //textoDiv.textContent = texto;
+           // localStorage.setItem("texto", texto);
+        })
+        //verificar se existe a entrada em localstorage
+        if(localStorage.getItem("texto")){
+           // textDiv.textContent = localStorage.getItem("texto");
+           //recupera o json no local storage
+           const textosJSON = localStorage.getItem("texto");
+           console.log(textosJSON);
+
+           textos = JSON.parse(textosJSON);
+
+           //converter o json em array
+           //textos = JSON.parse(textosJSON);
+           //console.log(textos);
+           textos.forEach((texto)=>{
+            const p = document.createElement("p");
+            p.textContent = texto;
+            textDiv.appendChild(p);
+           })
+        }
+
+    </script>
+</body>
+</html>
