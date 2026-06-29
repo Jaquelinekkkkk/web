@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>6c - Positions</title>
+    <style>
+        body { margin: 0; padding: 20px; font-family: sans-serif; }
+        .container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #ccc;
+        }
+        .box {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            color: black;
+            font-size: 12px;
+            padding: 5px;
+        }
+        .box1 { top: 0; 
+            left: 0; 
+            background-color: red; }
+        .box2 { top: 0; 
+            right: 0;
+            background-color: yellow; }
+        .box3 { bottom: 0; 
+            right: 0; 
+            background-color: green; }
+        .box4 { bottom: 0;
+             left: 0;
+              background-color: blue; }
+        .box5 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Centralização */
+            background-color: magenta;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box box1">box1</div>
+        <div class="box box2">box2</div>
+        <div class="box box3">box3</div>
+        <div class="box box4">box4</div>
+        <div class="box box5">box5</div>
+    </div>
+</body>
+</html>

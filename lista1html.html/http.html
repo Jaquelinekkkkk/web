@@ -31,22 +31,44 @@
             
             <h3>Exemplo de uma Requisição HTTP (Enviada pelo Cliente)</h3>
             <pre>
-GET /index.html HTTP/1.1
-Host: www.exemplo.com.br
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64)
-Accept-Language: pt-BR,pt;q=0.9
+GET /course/view.php?id=831 HTTP/3
+Host: moodle.ifsc.edu.br
+User-Agent: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:150.0) Gecko/20100101 Firefox/150.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7
+Accept-Encoding: gzip, deflate, br, zstd
+Referer: https://moodle.ifsc.edu.br/my/courses.php
+Alt-Used: moodle.ifsc.edu.br
+Connection: keep-alive
+Cookie: uzmx=7f900001b97634-821e-42db-a862-0c74180904093-17742041372691998875022-32e751848a1164b7133; uzmxj=7f900001b97634-821e-42db-a862-0c74180904093-17742041381481998870024-8791f1b9485c409540; MoodleSession=jnccuhes7k6m5fn351n191p91d; MOODLEID1_=sodium%3AJM0hTLLJ%2Bl4FJPdTE2CfpJwhQD0ckzGBd0KE2%2BFXPPFvPwXOagKqzixrveDLQqr9RdYPfF6v%2BA%3D%3D
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: same-origin
+Sec-Fetch-User: ?1
+Priority: u=0, i
             </pre>
 
             <h3>Exemplo de uma Resposta HTTP (Enviada pelo Servidor)</h3>
             <pre>
-HTTP/1.1 200 OK
-Date: Sun, 15 Mar 2026 12:00:00 GMT
-Server: Apache/2.4.41 (Ubuntu)
-Content-Type: text/html; charset=UTF-8
-Content-Length: 1254
-
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;...&lt;/html&gt;
+HTTP/3 200 
+server: nginx/1.22.1
+date: Sun, 28 Jun 2026 15:06:21 GMT
+content-type: text/html; charset=utf-8
+x-powered-by: PHP/8.1.26
+content-language: pt-br
+content-script-type: text/javascript
+content-style-type: text/css
+x-ua-compatible: IE=edge
+cache-control: no-store, no-cache, must-revalidate, no-transform
+pragma: no-cache
+expires: Mon, 20 Aug 1969 09:23:00 GMT
+last-modified: Sun, 28 Jun 2026 15:06:21 GMT
+accept-ranges: none
+content-encoding: gzip
+vary: Accept-Encoding
+via: 1.1 google
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
             </pre>
 
         

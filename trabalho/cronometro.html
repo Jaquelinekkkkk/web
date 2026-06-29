@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronômetro certo</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #8f8fcf;
+            padding: 50px;
+        }
+        #cronometro {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        #areabotoes{
+            margin-bottom: 20px;
+        }
+        button {
+            font-size: 20px;
+            margin: 5px;
+            border-radius: 5px;
+            border: 1px solid #030303;
+            
+        }
+        .historico {
+            margin-top: 30px;
+            text-align: left;
+            display: inline-block;
+            min-width: 200px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Cronômetro Digital</h1>
+    
+    <div id="cronometro">00:00:00</div>
+
+    <div class="historico">
+        <h3>Pausas Registradas:</h3>
+        <ol id="lista-pausas"></ol>
+    </div>
+
+    <script>
+       
+        let cronometro = document.getElementById("cronometro");
+        let listaPausas = document.getElementById("lista-pausas");
+
+        // Criando os botões
+        let buttonIniciar = document.createElement("button");
+        buttonIniciar.innerHTML = "Iniciar / Continuar";
+
+         let buttonPausar = document.createElement("button");
+        buttonPausar.innerHTML = "Pausar";
+
+    let buttonParar = document.createElement("button");
+        buttonParar.innerHTML = "Parar";
+
+        // Colocando os botões na tela (exibindo no html)
+        document.body.appendChild(buttonIniciar);
+        document.body.appendChild(buttonPausar);
+        document.body.appendChild(buttonParar);
+
+        //variaveis
+        let intervalo;
+        let tempoPecorrido = 0; 
+        let momentoInicio = 0;
+        let emExecucao = false;//comeca desligado
+
+        // funcao que calcula o tempo usando a classe Date
+        function atualizarCronometro() {
+            let tempoAtual = Date.now() - momentoInicio + tempoPecorrido;
+
+            let segundos = Math.floor((tempoAtual / 1000) % 60);
+            let minutos = Math.floor((tempoAtual / (1000 * 60)) % 60);
+            let horas = Math.floor((tempoAtual / (1000 * 60 * 60)) % 24);
+
+            let hrs = String(horas).padStart(2, '0');//padStart adiciona 0 a esquerda pra que o numro sej 08
+            let mins = String(minutos).padStart(2, '0');
+            let segs = String(segundos).padStart(2, '0');
+
+            let tempoFormatado = `${hrs}:${mins}:${segs}`;
+            cronometro.innerHTML = tempoFormatado;
+            
+            return tempoFormatado;
+        }
+
+        // ações dos botões
+
+        buttonIniciar.addEventListener("click", () => {
+            if (!emExecucao) {
+                emExecucao = true;
+                momentoInicio = Date.now(); // Pega o tempo exato do sistema
+                intervalo = setInterval(atualizarCronometro, 10); // Atualiza a tela a cada 10ms
+            }
+        });
+
+        buttonPausar.addEventListener("click", () => {
+            if (emExecucao) {
+                emExecucao = false;
+                clearInterval(intervalo); // Para o agendamento do setInterval
+                
+                tempoPecorrido += Date.now() - momentoInicio; // Guarda o tempo real percorrido
+                let tempoFinal = atualizarCronometro();
+
+                // Cria a lista
+                let itemLista = document.createElement("li");
+                itemLista.innerHTML = `Pausa: ${tempoFinal}`;
+                listaPausas.appendChild(itemLista);
+            }
+        });
+
+        buttonParar.addEventListener("click", () => {
+            emExecucao = false;
+            clearInterval(intervalo);
+            
+            tempoPecorrido = 0;
+            momentoInicio = 0;
+            cronometro.innerHTML = "00:00:00";
+            listaPausas.innerHTML = ""; // Limpa 
+        });
+    </script>
+</body>
+</html>

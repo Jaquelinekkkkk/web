@@ -15,18 +15,18 @@
     <script>
         let pdata=document.createElement("p");
         pdata.id="pdata";
+        document.body.appendChild(pdata);
 
         let intervalo; 
 
         let buttonParar=document.createElement("button");
-        button.innerHTML="Parar";
-        let button=document.createElement("button");
+        buttonParar.innerHTML="Parar";
 
         let buttonContinuar=document.createElement("button");
-        button.innerHTML="Continuar";
+        buttonContinuar.innerHTML="Continuar";
 
-        document.body.appendChild(Parar);
-        document.body.appendChild(Continuar);
+        document.body.appendChild(buttonParar);
+        document.body.appendChild(buttonContinuar);
 
 
         function atualizarDataHora(){
@@ -39,7 +39,7 @@
             intervalo=setInterval(atualizarDataHora,1000);
         });
         buttonParar.addEventListener("click",()=>{
-        intervalo=setInterval(intervalo);
+        clearInterval(intervalo);
         });
 
         

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculadora</title>
+  <style>
+    body {
+      background-color: #729be7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .calculadora {
+      background-color: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .tela {
+      background-color: #333;
+      color: #fff;
+      font-size: 2rem;
+      text-align: right;
+      padding: 20px;
+    }
+
+    .botoes {
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+    }
+
+    button {
+      padding: 20px;
+      font-size: 1.2rem;
+      border: 1px solid #818181;
+      cursor: pointer;
+      background-color: #f9f9f9;
+    }
+
+    button.operador {
+      background-color: #eee;
+    }
+
+    button.igual {
+      background-color: #88ff00;
+      color: white;
+      grid-row: span 2;
+    }
+
+    button.ac {
+      background-color: #fd362f;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculadora">
+    <div class="tela" id="tela">0</div>
+    <div class="botoes">
+      <button class="operador" onclick="add('+')">+</button>
+      <button class="operador" onclick="add('-')">-</button>
+      <button class="operador" onclick="add('*')">×</button>
+      <button class="operador" onclick="add('/')">÷</button>
+
+      <button onclick="add('7')">7</button>
+      <button onclick="add('8')">8</button>
+      <button onclick="add('9')">9</button>
+      <button class="igual" onclick="calcular()">=</button>
+
+      <button onclick="add('4')">4</button>
+      <button onclick="add('5')">5</button>
+      <button onclick="add('6')">6</button>
+
+      <button onclick="add('1')">1</button>
+      <button onclick="add('2')">2</button>
+      <button onclick="add('3')">3</button>
+
+      <button onclick="add('0')">0</button>
+      <button onclick="add('.')">.</button>
+      <button class="ac" onclick="limpar()">AC</button>
+    </div>
+  </div>
+
+  <script>
+    let expressao = '';
+
+    function add(valor) {
+      if (expressao === '0' && valor !== '.') {
+        expressao = valor;
+      } else {
+        expressao += valor;
+      }
+      atualizarTela();
+    }
+
+    function limpar() {
+      expressao = '';
+      atualizarTela('0');
+    }
+
+    function calcular() {
+      try {
+        let resultado = eval(expressao);
+        expressao = resultado.toString();
+        atualizarTela();
+      } catch (e) {
+        atualizarTela('Erro');
+        expressao = '';
+      }
+    }
+
+    function atualizarTela(valor) {
+      document.getElementById('tela').textContent = valor || expressao;
+    }
+  </script>
+</body>
+</html>
