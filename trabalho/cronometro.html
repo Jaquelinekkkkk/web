@@ -73,9 +73,13 @@
         function atualizarCronometro() {
             let tempoAtual = Date.now() - momentoInicio + tempoPecorrido;
 
-            let segundos = Math.floor((tempoAtual / 1000) % 60);
-            let minutos = Math.floor((tempoAtual / (1000 * 60)) % 60);
-            let horas = Math.floor((tempoAtual / (1000 * 60 * 60)) % 24);
+            let dataCronometro = new Date(tempoAtual);
+
+            let horas = dataCronometro.getUTCHours();
+            let minutos = dataCronometro.getUTCMinutes();
+            let segundos = dataCronometro.getUTCSeconds();
+
+         
 
             let hrs = String(horas).padStart(2, '0');//padStart adiciona 0 a esquerda pra que o numro sej 08
             let mins = String(minutos).padStart(2, '0');

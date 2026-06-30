@@ -4,17 +4,78 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+           body{
+            background-color: rgb(13, 134, 233);
+            color:rgb(0, 0, 0);
+            margin: 0;
+            padding: 20px;
+           }
+            .filme{
+                display: flex;
+                flex-direction: column;
+              object-fit: cover;
+              border-radius: 4px;
+              text-align: center;
+
+            }
+            .resultado{
+                display: grid;
+                grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+                gap: 25px;/*espaco entre as img*/
+                padding: 20px;
+            }
+            h1{
+                color: black;
+                text-align: center;
+
+            }
+            h2{
+                order: 2; 
+                font-size: 18px;
+                margin: 15px 0 5px 0;
+
+            }
+            p{
+                order:3;
+                text-align: center;
+                margin: 0;
+                font-size: 10px;
+                color: #000000;
+
+            }
+            img{
+                order: 1; 
+                width: 100%;  
+                height: 300px;
+                object-fit: cover;
+                border-radius: 4px;
+
+            }
+            .busca{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 20px;
+            }
+            .button{
+
+
+            }
+    </style>
 </head>
 <body>
     <h1>Busca Filmes</h1>
+    <div class="busca">
     <label for="busca">Busca</label>
     <input type="text" id="busca">
     <button id="button">Buscar</button>
+</div>
 
     <div class="resultado"></div>
     <script>
         const apikey = "f77bfada";
-        const button = document.getElementById("button"); // Boa prática: selecionar o botão explicitamente
+        const button = document.getElementById("button"); // selecionar o botão explicitamente
 
         button.addEventListener("click", () => {
             let stringBusca = document.getElementById("busca").value;
