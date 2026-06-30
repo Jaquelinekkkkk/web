@@ -34,7 +34,7 @@
 </head>
 <body>
 
-    <h1>Cronômetro Digital</h1>
+    <h1>Cronômetro</h1>
     
     <div id="cronometro">00:00:00</div>
 
@@ -79,7 +79,7 @@
 
             let hrs = String(horas).padStart(2, '0');//padStart adiciona 0 a esquerda pra que o numro sej 08
             let mins = String(minutos).padStart(2, '0');
-            let segs = String(segundos).padStart(2, '0');
+            let segs = String(segundos).padStart(2, '0');//virando string para estilizaao
 
             let tempoFormatado = `${hrs}:${mins}:${segs}`;
             cronometro.innerHTML = tempoFormatado;
@@ -89,7 +89,7 @@
 
         // ações dos botões
 
-        buttonIniciar.addEventListener("click", () => {
+        buttonIniciar.addEventListener("click", ()=>{
             if (!emExecucao) {
                 emExecucao = true;
                 momentoInicio = Date.now(); // Pega o tempo exato do sistema
@@ -97,7 +97,7 @@
             }
         });
 
-        buttonPausar.addEventListener("click", () => {
+        buttonPausar.addEventListener("click", ()=>{
             if (emExecucao) {
                 emExecucao = false;
                 clearInterval(intervalo); // Para o agendamento do setInterval

@@ -18,16 +18,16 @@
 
         button.addEventListener("click", () => {
             let stringBusca = document.getElementById("busca").value;
-            
+            //vaibuscar oq o user digitou
         
-            fetch(`https://www.omdbapi.com/?apikey=${apikey}&s=${stringBusca}`)
-                .then((result) => {
+            fetch(`https://www.omdbapi.com/?apikey=${apikey}&s=${stringBusca}`)//o fetch vai enviar uma requisicao pro servidor
+                .then((result) => {//faz com q o bjeto vire json legivel
                     return result.json();
                 })
                 .then((data) => {
                     console.log(data);
                    
-                    const filmes = data.Search;
+                    const filmes = data.Search;//extrai a lista
                     
                   
                     if (filmes) {
