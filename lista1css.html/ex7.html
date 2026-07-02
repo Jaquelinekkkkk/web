@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <title>7-chat</title>
     <style>
-        body { background-color: #f5f5f5; font-family: Arial, sans-serif; padding: 20px; }
+        body { background-color: #e9dfa6;
+              padding: 20px; }
         
         /* Janela do Chat */
-        .chat-window {
+        .janela-chat {
             width: 450px;
-            background: white;
-            border: 1px solid #ccc;
+            background: rgb(123, 172, 109);
             border-radius: 8px;
-            padding: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px;;
         }
         
-        /* Clearfix para conter os floats internos */
+        /* Clearfix para os floats internos */
         .message-row {
             margin-bottom: 15px;
             overflow: hidden; 
@@ -25,13 +24,13 @@
 
         .user-label {
             font-size: 11px;
-            color: #888;
+            color: #1d1c1c;
             margin-bottom: 2px;
         }
         .left .user-label { text-align: left; }
         .right .user-label { text-align: right; }
 
-        /* Balões de Mensagem */
+        /* Balões da Mensagem */
         .balloon {
             max-width: 80%;
             padding: 10px 15px;
@@ -41,75 +40,74 @@
             line-height: 1.4;
         }
 
-        /* Mensagem Recebida (Esquerda) */
+        /* Mensagem  esquerd */
         .left .balloon {
             float: left;
             background-color: #ffffff;
-            border: 1px solid #e0e0e0;
+            border: 1px solid #ffffff;
         }
 
-        /* Mensagem Enviada (Direita) */
+        /* Mensagem  direita*/
         .right .balloon {
             float: right;
-            background-color: #d1f2d9; /* Verde claro do mockup */
-            border: 1px solid #bce5c8;
+            background-color: #3cd161; 
+            border: 1px solid #3cd161;
         }
 
-        /* Simulação de avatares com CSS Puro geométrico */
+        
         .avatar {
             width: 30px;
             height: 30px;
             border-radius: 50%;
             display: inline-block;
-            vertical-align: middle;
             margin: 0 8px;
         }
-        .left .avatar { float: left; background-color: #3498db; }
-        .right .avatar { float: right; background-color: #2ecc71; }
+        .left .avatar { float: left;
+            background-color: #52c752; }
+        .right .avatar { float: right;
+            background-color: #ffffff; }
 
         .time {
             font-size: 10px;
-            color: #999;
+            color: #000000;
             text-align: right;
             display: block;
             margin-top: 4px;
         }
 
-        /* Área de input de texto inferior */
+        /* linha */
         .input-area {
             margin-top: 20px;
-            border-top: 1px solid #eee;
+            border-top: 1px solid #000000;
             padding-top: 15px;
             overflow: hidden;
         }
         .input-area textarea {
             width: 100%;
             height: 50px;
-            border: 1px solid #ccc;
+            border: 1px;
             border-radius: 4px;
-            padding: 8px;
+            padding: 10px;
             box-sizing: border-box;
-            resize: none;
         }
         .input-area button {
             float: right;
-            margin-top: 8px;
-            padding: 6px 15px;
+            margin-top: 10px;
+            padding: 5px 10px;
             background-color: #f5f5f5;
-            border: 1px solid #ccc;
+            border: 1px ;
             border-radius: 3px;
-            cursor: pointer;
         }
     </style>
 </head>
 <body>
 
-    <div class="chat-window">
+    <div class="janela-chat">
         <div class="message-row left">
             <div class="user-label">Pedro Silva</div>
             <div class="avatar"></div>
             <div class="balloon">
-                Olá, tudo bem?
+                <p></p>Olá, tudo bem?</p>
                 <span class="time">00:50</span>
             </div>
         </div>
@@ -118,7 +116,7 @@
             <div class="user-label">Eu</div>
             <div class="avatar"></div>
             <div class="balloon">
-                Estou bem sim, e você?
+                <p>Bem sim, e você?</p>
                 <span class="time">00:55</span>
             </div>
         </div>
@@ -127,7 +125,7 @@
             <div class="user-label">Pedro Silva</div>
             <div class="avatar"></div>
             <div class="balloon">
-                Vamos sair hoje? sabe conversar e Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus
+                <p>Vamos sair hoje? sabe conversar e Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum ducimus</p>
                 <span class="time">01:01</span>
             </div>
         </div>
@@ -136,7 +134,7 @@
             <div class="user-label">Eu</div>
             <div class="avatar"></div>
             <div class="balloon">
-                Criatura ......
+                <p>Criatura ......</p>
                 <span class="time">01:05</span>
             </div>
         </div>
