@@ -1,53 +1,27 @@
-<?php
-require 'conexao.php';
-require 'Produto.php';
-require 'ProdutoDAO.php';
+    <?php
+require "conexao.php";
 
-function validar(array $dados): array {
-    $erros = [];
-    
-    $nome = trim($dados['nome'] ?? '');
-    if ($nome == '') {
-        $erros['nome'] = 'O nome é obrigatório.';
-    } elseif (mb_strlen($nome) < 3) {
-        $erros['nome'] = 'Mínimo de 3 letras.';
-    }
+$erros = [];
 
-    $email = trim($dados['email'] ?? '');
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $erros['email'] = 'E-mail inválido.';
-    }
+$titulo = trim($_POST["titulo"] ?? "");
 
-    $preco = str_replace(',', '.', $dados['preco'] ?? '');
-    if (!is_numeric($preco)) {
-        $erros['preco'] = 'Preço deve ser numérico.';
-    } elseif ((float)$preco <= 0) {
-        $erros['preco'] = 'Preço deve ser maior que zero.';
-    }
+if ($titulo === "") $erros[] = "O título é obrigatório.";
+elseif (mb_strlen($titulo) < 2) $erros[] = "Título muito curto.";
 
-    return $erros;
-}
+    # o mb_strlen obtem/armazena o comprmento da string que no caso é titulo
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $erros = validar($_POST);
+$autor = trim($_POST["autor"] ?? "");
+if ($autor === "") $erros[] = "O autor é obrigatório.";
 
-    if (count($erros) > 0) {
-        session_start();
-        $_SESSION['erros'] = $erros;
-        $_SESSION['valores'] = $_POST;
-        header('Location: form_produto.php');
-        exit;
-    }
+$ano = $_POST["ano"] ?? "";
+if (!ctype_digit((string)$ano))
+ $erros[] = "O ano deve conter apenas números.";
+elseif ((int)$ano < 11 || (int)$ano > (int)date("Y"))
+ $erros[] = "Ano fora do intervalo permitido.";
 
-    // Se a validação passar, trata o preço e grava com o DAO
-    $precoTratado = (float)str_replace(',', '.', $_POST['preco']);
-    $estoqueTratado = (int)$_POST['estoque'];
-    
-    $novoProduto = new Produto($_POST['nome'], $precoTratado, $estoqueTratado);
-    
-    $dao = new ProdutoDAO($pdo);
-    $dao->inserir($novoProduto);
-
-    header('Location: listar.php');
-    exit;
+$genero_id = filter_input(INPUT_POST, "genero_id", FILTER_VALIDATE_INT);
+if (!$genero_id) $erros[] = "Escolha um gênero.";
+if ($erros) {
+foreach ($erros as $e) echo htmlspecialchars($e) . "<br>";
+exit;
 }
