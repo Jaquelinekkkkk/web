@@ -25,3 +25,13 @@ if ($erros) {
 foreach ($erros as $e) echo htmlspecialchars($e) . "<br>";
 exit;
 }
+
+$stmt = $conexao->prepare("INSERT INTO livros (titulo, autor, ano, genero_id) VALUES (?, ?, ?, ?)");
+$stmt->bind_param("ssii", $titulo, $autor, $ano, $genero_id);
+
+if ($stmt->execute()) {
+    header("Location: index.php");
+    exit;
+} else {
+    echo "Erro ao salvar no banco de dados.";
+}
