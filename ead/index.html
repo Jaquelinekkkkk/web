@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mural de Recados - AJAX IFSC</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f9; }
+    h1 { color: #16833a; }
+    form { background: white; padding: 20px; border-radius: 8px; max-width: 400px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+    label { display: block; margin-bottom: 8px; font-weight: bold; }
+    input, textarea, button { width: 100%; padding: 8px; margin-top: 4px; margin-bottom: 12px; box-sizing: border-box; }
+    button { background-color: #16833a; color: white; border: none; cursor: pointer; border-radius: 4px; font-weight: bold; }
+    button:disabled { background-color: #ccc; }
+    #status { font-weight: bold; margin-top: 10px; }
+    article { background: white; padding: 12px; margin-top: 10px; border-left: 5px solid #16833a; border-radius: 4px; }
+    article h2 { margin: 0 0 8px 0; font-size: 1rem; color: #9d1f1f; }
+  </style>
+</head>
+<body>
+
+  <h1>Mural de Recados (AJAX)</h1>
+
+  <form id="formRecado">
+    <label for="autor">Nome:</label>
+    <input type="text" id="autor" name="autor" placeholder="Seu nome" required>
+
+    <label for="texto">Mensagem:</label>
+    <textarea id="texto" name="texto" placeholder="Digite o recado" required></textarea>
+
+    <button type="submit" id="btnSalvar">Publicar</button>
+  </form>
+
+  <p id="status"></p>
+
+  <section id="recados"></section>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

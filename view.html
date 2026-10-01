@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+
+        <input type="number" id="op1"> 
+        <input type="number" id="op2"> 
+
+        <button id="somar">Somar</button>
+
+        <p id="res"></p> 
+        <script>
+
+            const bSomar = document.getElementById("somar");
+            const res = document.getElementById("res");
+            const op1 = document.getElementById("op1");
+            const op2 = document.getElementById("op2");
+            bSomar.addEventListener("click", buscarSoma(op1, op2));
+
+            function buscarSoma(op1, op2){
+                const resposta =  fetch("controller.php");
+                const resultado = resposta.json();
+
+                res.innerHTML = resposta;
+            }
+
+
+
+        </script>
+        
+    </form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Busca Simples</title>
+</head>
+<body>
+
+  <h2>Buscar Alunos</h2>
+  <input type="text" id="campoBusca" placeholder="Digite o nome...">
+  <button id="btnBuscar">Buscar</button>
+
+  <ul id="lista"></ul>
+
+  <script>
+    const campo = document.querySelector('#campoBusca');
+    const btn = document.querySelector('#btnBuscar');
+    const lista = document.querySelector('#lista');
+
+    btn.addEventListener('click', async () => {
+      const termo = campo.value;
+
+      // Corrigido para buscar-alunos.php (com traço)
+      const resposta = await fetch(`api/buscar-alunos.php?q=${termo}`);
+      const dados = await resposta.json();
+
+      lista.innerHTML = '';
+      
+      if (dados.alunos.length === 0) {
+        lista.innerHTML = '<li>Nenhum aluno encontrado.</li>';
+        return;
+      }
+
+      dados.alunos.forEach(nome => {
+        const li = document.createElement('li');
+        li.textContent = nome;
+        lista.appendChild(li);
+      });
+    });
+  </script>
+
+</body>
+</html>

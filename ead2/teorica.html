@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade EaD (05/09 e 12/09)</title>
+</head>
+<body>
+    <h1>Atividade 1 - Resolução das Classificações</h1>
+    <p>FETCH() - Front-end</p>
+    <p>JSON_ENCODE() - Back-end</p>
+    <p>HTTP status 404 - Protocolo/Formato</p>
+    <p>$_GET['q'] - Back-end</p>
+    <p>document.createElemnt() - Front-end</p>
+    <p>JSON - Protocolo/Formato</p>
+    <p>Conten-Type: aplication/json - Protocolo/formato</p>
+    <p>PDO - Back-end</p>
+    <p>await resposta.json() - Front-end</p>
+    <p>SQL com prepared statement - Back-end</p>
+    
+    <h1>Atividade 2 - Análise de Erros do Código</h1>
+
+    async function salvar() {<br>
+  const resposta = await fetch("api/salvar.php", {<br>
+    method: "POST",<br>
+    body: { nome: "Ana" } <br>
+  });<br>
+
+  const dados = await resposta.json();<br>
+  console.log(dados);<br>
+}
+<h3>Perguntas</h3>
+<b><p>O corpo da requisição está correto?</p></b>
+<p>É necessário converter o JSON com JSON.sringify({:nome "ana"}). O body está tentando enviar um objeto java de forma direta.</p>
+<b><p>Falta algum header?</p></b>
+<p>Sim falta o header. "'Content-type': 'applicaton/json'" para o servidoe php saber como interpretar o body da requisição</p>
+<b><p>Como o PHP deveria ler essa entrada?</p></b>
+<p>No PHP, o body é interpretadoo através de "file_get_contents('php//input') e json_decode()", em vez de $POST.</p>
+<b><p>Como tratar erro HTTP?</p></b>
+<P>O "try..catch" pega os erros de rede, tipo cservidor fora di ar. O "if (!resposta.ok) " pega os erros do servidor, tipo página não encontrada(404) ou erro interno(500)</P>
+
+<a href="formulario.html">formulario.html</a><br>
+<a href="busca_alunos.html">busca_alunos.html</a><br>
+<a href="salvar.php">salvar.php</a><br>
+<a href="buscar_alunos.php">buscar_alunos.php</a><br>
+
+</body>
+</html>

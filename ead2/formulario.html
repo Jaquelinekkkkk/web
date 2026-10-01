@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulário AJAX</title>
+</head>
+<body>
+
+  <form id="meuForm">
+    <input type="text" name="titulo" placeholder="Título" required><br><br>
+    <textarea name="descricao" placeholder="Descrição" required></textarea><br><br>
+    <button type="submit">Salvar</button>
+  </form>
+
+  <p id="mensagem" style="font-weight: bold;"></p>
+
+  <script>
+    const form = document.querySelector('#meuForm');
+    const msg = document.querySelector('#mensagem');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Impede recarregar a página
+
+      msg.style.color = "black";
+      msg.textContent = "A salvar...";
+
+      const dados = {
+        titulo: form.titulo.value,
+        descricao: form.descricao.value
+      };
+
+      try {
+        const resposta = await fetch('api/salvar.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(dados)
+        });
+
+        // Tenta ler a resposta JSON do PHP
+        const resultado = await resposta.json();
+        
+        msg.textContent = resultado.mensagem;
+        
+        if (resultado.ok) {
+          msg.style.color = "green";
+          form.reset(); // Limpa o formulário
+        } else {
+          msg.style.color = "red";
+        }
+
+      } catch (erro) {
+        msg.style.color = "red";
+        msg.textContent = "Erro ao comunicar com o servidor ou JSON inválido.";
+        console.error(erro);
+      }
+    });
+  </script>
+
+</body>
+</html>
